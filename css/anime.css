@@ -1,0 +1,23 @@
+.anime-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .anime-card img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .anime-card h3 {
+    margin: 0;
+  }
+  
+  .anime-card p {
+    margin: 5px 0 0 0;
+  }
+  

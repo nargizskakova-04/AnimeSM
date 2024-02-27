@@ -11,3 +11,4 @@ async function getAnimeList(query) {
 }
 
 module.exports = getAnimeList;
+

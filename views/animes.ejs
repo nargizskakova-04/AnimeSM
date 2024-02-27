@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Аниме</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/anime.css">
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
     <h1>Аниме</h1>
     <p>Здесь вы можете искать и добавлять аниме в свой список.</p>
+    <form action="/anime/search" method="get">
+        <input type="text" name="query" placeholder="Название аниме">
+        <button type="submit">Поиск</button>
+    </form>
     <% animes.forEach(anime => { %>
         <div class="anime-card">
           <img src="<%= anime.image_url %>" alt="<%= anime.title %>">

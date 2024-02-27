@@ -7,6 +7,11 @@ const flash = require('express-flash');
 const MongoStore = require('connect-mongo');
 const app = express();
 
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
+
 // Подключение к MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected'))
@@ -37,7 +42,7 @@ const animeRouter = require('./routes/anime');
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-app.use('/anime', animeRouter);
+app.use('/', animeRouter);
 
 
 
