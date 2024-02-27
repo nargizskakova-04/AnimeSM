@@ -2,27 +2,36 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
 
 router.post('/register', async (req, res) => {
   try {
-    req.flash('success', 'Регистрация прошла успешно! Пожалуйста, войдите.');
-    res.render('index', { message: req.flash('success') }); 
+      const { username, email, password } = req.body;
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const newUser = new User({
+          username,
+          email,
+          password: hashedPassword
+      });
+      await newUser.save(); 
+      res.redirect('/login'); 
   } catch (error) {
-    console.log(error);
-    req.flash('error', 'Ошибка при регистрации.');
-    res.render('index', { message: req.flash('error') });
+      console.log(error);
+      res.redirect('/register'); 
   }
 });
+
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/dashboard',
   failureRedirect: '/',
   failureFlash: true
 }));
-router.post('/users/login', passport.authenticate('local', {
+router.get('/login', passport.authenticate('local', {
   successRedirect: '/dashboard',
   failureRedirect: '/',
   failureFlash: true
 }));
+
 
   
 
