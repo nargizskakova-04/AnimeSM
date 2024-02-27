@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Аниме</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <h1>Аниме</h1>
+    <p>Здесь вы можете искать и добавлять аниме в свой список.</p>
+    <% animes.forEach(anime => { %>
+        <div class="anime-card">
+          <img src="<%= anime.image_url %>" alt="<%= anime.title %>">
+          <h3><%= anime.title %></h3>
+          <p><%= anime.synopsis %></p>
+          <button>Добавить в избранное</button>
+        </div>
+      <% }) %>
+      
+</body>
+</html>
