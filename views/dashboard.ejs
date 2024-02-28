@@ -7,7 +7,23 @@
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
-    <h1>Твоя страница</h1>
-    <p>Здесь вы можете искать и добавлять аниме в свой список.</p>
+    <h2>Привет, <%= user.username %>!</h2>
+    <p>Твой email: <%= user.email %></p>
+
+<div id="favorites">
+  <h3>Твои избранные аниме:</h3>
+  <% if (user.favorites && user.favorites.length > 0) { %>
+    <% user.favorites.forEach(anime => { %>
+      <div class="anime-card">
+        <img src="<%= anime.image_url %>" alt="<%= anime.title %>">
+        <h3><%= anime.title %></h3>
+        <p><%= anime.synopsis %></p>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>У тебя пока нет избранных аниме.</p>
+  <% } %>
+</div>
+
 </body>
 </html>

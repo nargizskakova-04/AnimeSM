@@ -1,23 +1,66 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #F5F5F5;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  padding: 20px 0;
+  margin: 0;
+  font-size: 3em;
+}
+
+p {
+  text-align: center;
+  color: #666;
+  font-size: 1.2em;
+}
+
 .anime-card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .anime-card img {
-    width: 100px;
-    height: auto;
-    margin-right: 20px;
-  }
-  
-  .anime-card h3 {
-    margin: 0;
-  }
-  
-  .anime-card p {
-    margin: 5px 0 0 0;
-  }
-  
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.anime-card:hover {
+  transform: translateY(-5px);
+}
+
+.anime-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.anime-card h3 {
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.anime-card p {
+  color: #666;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+button {
+  background-color: #C62828;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #D32F2F;
+}

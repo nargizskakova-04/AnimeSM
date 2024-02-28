@@ -6,27 +6,29 @@ const bcrypt = require('bcrypt');
 
 router.post('/register', async (req, res) => {
   try {
-      const { username, email, password } = req.body;
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = new User({
-          username,
-          email,
-          password: hashedPassword
-      });
-      await newUser.save(); 
-      res.redirect('/login'); 
+    const { username, email, password } = req.body;
+    const newUser = new User({
+        username,
+        email,
+        password,
+        favorites: [] 
+    });
+    const savedUser = await newUser.save();
+    
+    req.login(savedUser, (err) => {
+      if (err) throw err;
+      res.redirect('/dashboard'); 
+    });
   } catch (error) {
-      console.log(error);
-      res.redirect('/register'); 
+    console.log(error);
+    res.redirect('/register');
   }
 });
 
+
+
+
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/dashboard',
-  failureRedirect: '/',
-  failureFlash: true
-}));
-router.get('/login', passport.authenticate('local', {
   successRedirect: '/dashboard',
   failureRedirect: '/',
   failureFlash: true

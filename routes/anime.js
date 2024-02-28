@@ -51,4 +51,8 @@ router.get('/animes', async (req, res) => {
   }
 });
 
+router.post('/add-to-favorites', async (req, res) => {
+  // Здесь должна быть логика добавления аниме в список избранных пользователя
+});
+
 module.exports = router;
