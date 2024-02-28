@@ -1,14 +1,14 @@
 const axios = require('axios');
 
-async function getAnimeList(query) {
-  try {
-    const response = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&page=1`);
-    return response.data.results;
-  } catch (error) {
-    console.error(error);
-    return [];
+async function fetchAnimeList() {
+    try {
+      const url = 'https://api.jikan.moe/v4/top/anime'; 
+      const response = await axios.get(url);
+      return response.data.data;  
+    } catch (error) {
+      console.error('Ошибка при получении списка аниме:', error);
+      return []; 
+    }
   }
-}
-
-module.exports = getAnimeList;
+module.exports = fetchAnimeList;
 

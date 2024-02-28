@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const getAnimeList = require('../utils/animeApi');
+const fetchAnimeList = require('../utils/animeApi');
 const axios = require('axios');
 
 router.get('/search', async (req, res) => {
   try {
     const query = req.query.query;
-    const response = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}`);
+    const response = await axios.get(`https://api.jikan.moe/v4/search/anime?q=${query}`);
     const animes = response.data.results;
     res.render('animes', { animes }); 
   } catch (error) {
@@ -26,15 +26,29 @@ router.get('/search', async (req, res) => {
 });
 */
 
+router.get('/', async (req, res) => {
+  try {
+    const response = await axios.get('https://api.jikan.moe/v4/top/anime'); 
+    const animes = response.data.data;
+    res.render('animes', { animes });
+  } catch (error) {
+    console.error(error);
+    res.render('animes', { animes: [] });
+  }
+});
+
+
 router.get('/animes', async (req, res) => {
   try {
-      const animes = await getAnimeList('naruto');
-      res.render('animes', { animes }); 
+    const animeList = await fetchAnimeList(); 
+    res.render('animes', { 
+      user: req.user, 
+      animes: animeList 
+    });
   } catch (error) {
       console.error(error);
       res.status(500).send('Ошибка сервера');
   }
 });
-
 
 module.exports = router;
