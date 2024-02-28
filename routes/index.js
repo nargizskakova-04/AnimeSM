@@ -17,7 +17,7 @@ router.get('/dashboard', async (req, res) => {
     favorites: req.user.favorites
   };
 
-  res.render('dashboard', { user});
+  res.render('dashboard', { user: req.user});
 });
 
 
