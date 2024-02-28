@@ -1,11 +1,11 @@
 
 <nav>
     <ul>
-        <li><a href="/">Главная</a></li>
+        <li><a href="/dashboard">Главная</a></li>
         <% if (user) { %>
             <li><a href="/animes">Аниме</a></li>
             <li><a href="/friends">Друзья</a></li>
-            <li><a href="/users/logout">Выход</a></li>
+            <li><a href="/">Выход</a></li>
         <% } else { %>
             <li><a href="/login">Вход</a></li>
             <li><a href="/register">Регистрация</a></li>

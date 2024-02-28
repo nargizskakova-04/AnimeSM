@@ -7,6 +7,9 @@ const flash = require('express-flash');
 const MongoStore = require('connect-mongo');
 const app = express();
 
+app.use(express.static('public'));
+
+
 app.use((req, res, next) => {
   res.locals.user = req.user || null;
   next();
