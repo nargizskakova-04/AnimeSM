@@ -1,49 +1,69 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F4F1EF;
-    color: #333; 
+    background-color: #fff;
+    color: #333;
     margin: 0;
     padding: 0;
-}
-
-
-h1 {
-    color: #5D2E8C;
-    text-align: center;
-    padding: 20px 0; 
-}
-
-
-p {
-    text-align: center;
-    margin: 20px auto; 
-    max-width: 600px; 
+    text-align: center; 
 }
 
 .navbar {
-    background-color: #333; 
-    padding: 10px;
-    list-style: none; 
+    background-color: #480607;
+    padding: 10px 0;
+    color: #ffffff;
 }
 
 .navbar ul {
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; 
-    list-style: none; 
+    justify-content: center;
 }
 
-.navbar li {
-    margin: 0 10px; 
+.navbar ul li {
+    margin: 0 15px;
 }
 
-.nav-link {
-    color: #fff; 
-    text-decoration: none; 
-    transition: color 0.3s ease-in-out; 
+.navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.nav-link:hover, .nav-link:focus {
-    color: #F4D03F; 
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    color: #480607;
+}
+
+.user-card {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left; 
+}
+
+.user-card .username {
+    color: #480607;
+    margin: 0 0 10px 0;
+}
+
+.user-card .email, .user-card .about {
+    color: #333;
+    margin: 5px 0;
+}
+
+.user-card .about {
+    font-style: italic;
+}
+
+.user-card p {
+    padding: 5px 0;
 }

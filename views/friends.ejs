@@ -8,6 +8,17 @@
 <body>
     <%- include('partials/navbar.ejs') %>
     <h1>Анимешники</h1>
-    <p>Здесь вы можете найти таких же анимешников, как и вы</p>
+    <h3>Здесь вы можете найти таких же анимешников, как и вы</h3>
+    <% if (users) { %>
+        <% users.forEach(user => { %>
+            <div class="user-card">
+                <h2 class="username"><%= user.username %></h2>
+                <p class="email">Email: <%= user.email %></p>
+                <p class="about">About: <%= user.about %></p>
+            </div>
+        <% }) %>
+      <% } else { %>
+        <p>Пользователи не найдены.</p>
+      <% } %>
 </body>
 </html>

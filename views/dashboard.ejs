@@ -8,9 +8,9 @@
 <body>
     <%- include('partials/navbar.ejs') %>
     <h2>Привет, <%= user.username %>!</h2>
-    <p>Твой email: <%= user.email %></p>
-    <h3>О себе и любимых аниме:</h3>
+    <h2>Твой email: <%= user.email %></h2>
     <form action="/update-about" method="post">
+        <h3>О себе и любимых аниме:</h3>
         <textarea name="about" rows="4" cols="50"><%= user.about %></textarea>
         <button type="submit">Сохранить</button>
     </form>
