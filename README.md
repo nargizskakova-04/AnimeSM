@@ -41,3 +41,5 @@ We welcome contributions to AnimeSM! Please feel free to contribute by opening i
 
 
 This README provides a basic overview of the project, including a brief introduction, features, setup instructions, technologies used, and contribution guidelines. Feel free to adjust the content according to your project's specifics or additional details you'd like to include.
+
+admin: nargizskakova-04@mail.ru (password: puding110)
