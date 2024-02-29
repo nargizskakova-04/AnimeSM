@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Друзья</title>
+    <title>Friends</title>
     <link rel="stylesheet" href="/css/friends.css">
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
-    <h1>Анимешники</h1>
-    <h3>Здесь вы можете найти таких же анимешников, как и вы</h3>
+    <h1>Anime viewers</h1>
+    <h3>There you can find anime viewers like you and text them by email</h3>
     <% if (users) { %>
         <% users.forEach(user => { %>
             <div class="user-card">
@@ -18,7 +18,7 @@
             </div>
         <% }) %>
       <% } else { %>
-        <p>Пользователи не найдены.</p>
+        <p>Users are not found.</p>
       <% } %>
 </body>
 </html>

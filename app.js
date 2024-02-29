@@ -42,13 +42,14 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const animeRouter = require('./routes/anime');
 const friendsRouter = require('./routes/friends');
+const adminRouter = require('./routes/admin');
 
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', animeRouter);
 app.use('/', friendsRouter);
-
+app.use('/', adminRouter);
 
 
 

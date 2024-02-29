@@ -1,14 +1,17 @@
 
 <nav class="navbar">
     <ul>
-        <li><a href="/dashboard">Главная</a></li>
+        <li><a href="/dashboard">Main</a></li>
         <% if (user) { %>
-            <li><a href="/animes">Аниме</a></li>
-            <li><a href="/friends">Анимешники</a></li>
-            <li><a href="/">Выход</a></li>
+            <li><a href="/animes">Anime</a></li>
+            <% if (user.admin) { %>
+                <li><a href="/admin">Admin</a></li>
+            <% } %>
+            <li><a href="/friends">AnimeViewers</a></li>
+            <li><a href="/">Logout</a></li>
         <% } else { %>
-            <li><a href="/login">Вход</a></li>
-            <li><a href="/register">Регистрация</a></li>
+            <li><a href="/login">login</a></li>
+            <li><a href="/register">register</a></li>
         <% } %>
     </ul>
 </nav>

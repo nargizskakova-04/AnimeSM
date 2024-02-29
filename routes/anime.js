@@ -38,7 +38,18 @@ router.get('/', async (req, res) => {
 });
 
 
- 
+router.get('/animes', async (req, res) => {
+  try {
+    const animeList = await fetchAnimeList(); 
+    res.render('animes', { 
+      user: req.user, 
+      animes: animeList 
+    });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Ошибка сервера');
+  }
+});
 
 router.post('/add-to-favorites', async (req, res) => {
   // Здесь должна быть логика добавления аниме в список избранных пользователя
