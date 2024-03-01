@@ -43,6 +43,7 @@ const usersRouter = require('./routes/users');
 const animeRouter = require('./routes/anime');
 const friendsRouter = require('./routes/friends');
 const adminRouter = require('./routes/admin');
+const mangaRouter = require('./routes/manga');
 
 
 app.use('/', indexRouter);
@@ -50,6 +51,8 @@ app.use('/', usersRouter);
 app.use('/', animeRouter);
 app.use('/', friendsRouter);
 app.use('/', adminRouter);
+app.use('/', mangaRouter);
+
 
 
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manga top</title>
+    <link rel="stylesheet" href="/css/manga.css">
+    
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <h1>Manga</h1>
+    <p>There are most popular manga and their description</p>
+    <div id="manga-list">
+        <% mangas.forEach(manga => { %>
+            <div class="manga">
+                <div class="manga-title"><%= manga.attributes.canonicalTitle %></div>
+                <div class="manga-description"><%= manga.attributes.description %></div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
