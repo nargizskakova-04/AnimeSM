@@ -72,3 +72,15 @@ button:hover {
     background-color: #480607;
 }
 
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: #480607;
+}
+
+.swiper-button-prev::after {
+  content: '\2039';
+}
+
+.swiper-button-next::after {
+  content: '\203A';
+}
