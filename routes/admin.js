@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user'); 
 const bcrypt = require('bcrypt');
+const Item = require('../models/item');
+
 
 router.get('/admin', async (req, res) => {
     try {
@@ -66,6 +68,35 @@ router.get('/admin', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.send("Failed to edit user.");
+    }
+});
+
+router.post('/admin/items', async (req, res) => {
+    const { nameEn, nameOther, descriptionEn, descriptionOther, image1, image2, image3 } = req.body;
+    const newItem = new Item({
+        names: { en: nameEn, other: nameOther },
+        descriptions: { en: descriptionEn, other: descriptionOther },
+        images: [image1, image2, image3],
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    });
+
+    try {
+        await newItem.save(); 
+        res.redirect('/admin'); 
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error adding new item.');
+    }
+});
+
+router.post('/admin/items/:id/delete', async (req, res) => {
+    try {
+        await Item.findByIdAndRemove(req.params.id); 
+        res.redirect('/admin');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error deleting item.');
     }
 });
 

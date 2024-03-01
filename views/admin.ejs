@@ -49,5 +49,40 @@
             </ul>
         </div>
     </div>
+
+    <form action="/admin/items" method="post">
+        <div class="form-group">
+            <label for="nameEn">Название (EN):</label>
+            <input type="text" id="nameEn" name="nameEn" required>
+        </div>
+        <div class="form-group">
+            <label for="nameOther">Название (Other Language):</label>
+            <input type="text" id="nameOther" name="nameOther" required>
+        </div>
+        <div class="form-group">
+            <label for="descriptionEn">Описание (EN):</label>
+            <textarea id="descriptionEn" name="descriptionEn" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="descriptionOther">Описание (Other Language):</label>
+            <textarea id="descriptionOther" name="descriptionOther" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image1">Ссылка на изображение 1:</label>
+            <input type="url" id="image1" name="image1" required>
+        </div>
+        <div class="form-group">
+            <label for="image2">Ссылка на изображение 2:</label>
+            <input type="url" id="image2" name="image2" required>
+        </div>
+        <div class="form-group">
+            <label for="image3">Ссылка на изображение 3:</label>
+            <input type="url" id="image3" name="image3" required>
+        </div>
+        <button type="submit">Добавить элемент</button>
+    </form>
+
+      
+      
 </body>
 </html>
