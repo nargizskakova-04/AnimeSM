@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Anime</title>
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
@@ -16,18 +17,42 @@
     </form>
       
     <% items.forEach(function(item) { %>
-        <div class="item-block">
-            <div class="carousel">
-                <img src="<%= item.images[0] %>" alt="Image 1">
-                <img src="<%= item.images[1] %>" alt="Image 2">
-                <img src="<%= item.images[2] %>" alt="Image 3">
+        <div class="item-block" style="margin-bottom: 20px;">
+          <div class="swiper-container" style="width: auto; height: 200px;">
+            <div class="swiper-wrapper">
+              <% item.images.forEach(function(image) { %>
+              <div class="swiper-slide">
+                <img src="<%= image %>" alt="Image" style="width: auto; height: 100%;">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+              <% }); %>
             </div>
-            <h2><%= item.names.en %> / <%= item.names.other %></h2>
+            
+          </div>
+        
+          <div class="item-text" style="text-align: center;">
+            <h3><%= item.names.en %> / <%= item.names.other %></h3>
             <p><%= item.descriptions.en %></p>
             <p><%= item.descriptions.other %></p>
+          </div>
         </div>
-    <% }); %>
-
+        <% }); %>
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <script>
+        var swiper = new Swiper('.swiper-container', {
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+       </script>
 
 </body>
 </html>
